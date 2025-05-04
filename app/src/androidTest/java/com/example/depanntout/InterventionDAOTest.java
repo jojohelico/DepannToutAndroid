@@ -98,6 +98,51 @@ public class InterventionDAOTest {
         // L'intervention ne doit plus être présente
         assertFalse("Intervention toujours présente après suppression", found);
     }
+    @Test
+    public void testModifIntervention() {
+        // ⚠️ Assure-toi qu’un client avec l’ID 1 existe déjà dans la base.
+        // Sinon, ajoute un client temporaire ici avant.
+
+        // Création d'une intervention de test (valeurs initiales)
+        Intervention inter = new Intervention("01/01/2025", "10:00", "Observation initiale", 1);
+        long id = interventionDAO.create(inter);
+        assertTrue("Échec de l'insertion de l'intervention", id != -1);
+
+        // Mise à jour des données
+        String nouvelleDate = "02/02/2025";
+        String nouvelleHeure = "14:30";
+        String nouvelleObs = "Observation modifiée";
+        int nouveauIdCli = 1;  // Ici, même client. Tu peux en changer si tu veux tester un autre client.
+
+        // Appel de la méthode de mise à jour
+        boolean updated = interventionDAO.update((int) id, nouvelleDate, nouvelleHeure, nouvelleObs, nouveauIdCli);
+        assertTrue("Échec de la mise à jour de l'intervention", updated);
+
+        // Vérification dans la base que l'intervention a bien été modifiée
+        Cursor cursor = interventionDAO.readLesInterventions();
+        boolean modifTrouvee = false;
+
+        while (cursor.moveToNext()) {
+            int idInter = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
+            String date = cursor.getString(cursor.getColumnIndexOrThrow("date"));
+            String heure = cursor.getString(cursor.getColumnIndexOrThrow("heure"));
+            String obs = cursor.getString(cursor.getColumnIndexOrThrow("observation"));
+
+            if (idInter == (int) id &&
+                    date.equals(nouvelleDate) &&
+                    heure.equals(nouvelleHeure) &&
+                    obs.equals(nouvelleObs)) {
+                modifTrouvee = true;
+                break;
+            }
+        }
+
+        cursor.close();
+        interventionDAO.close();
+
+        // Vérifie que l'intervention modifiée a bien été retrouvée
+        assertTrue("Intervention modifiée non retrouvée dans la base", modifTrouvee);
+    }
 
 }
 

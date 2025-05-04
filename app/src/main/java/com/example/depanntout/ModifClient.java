@@ -26,7 +26,7 @@ public class ModifClient extends AppCompatActivity {
 
         String prenom = getIntent().getStringExtra("prenom");
         String nom = getIntent().getStringExtra("nom");
-        int numTel = getIntent().getIntExtra("numTel", -1);
+        String numTel = getIntent().getStringExtra("numTel");
         String adrMail = getIntent().getStringExtra("adrMail");
         String adrPostale = getIntent().getStringExtra("adrPostale");
         idCli = getIntent().getIntExtra("_id", -1);
@@ -39,7 +39,7 @@ public class ModifClient extends AppCompatActivity {
 
         etPrenom.setText(prenom);
         etNom.setText(nom);
-        etNumTel.setText(numTel != -1 ? String.valueOf(numTel) : "");
+        etNumTel.setText(numTel);
         etAdrMail.setText(adrMail);
         etAdrPostale.setText(adrPostale);
 
@@ -54,10 +54,10 @@ public class ModifClient extends AppCompatActivity {
             boolean isDeleted = clientDAO.delete(idCli);
             clientDAO.close();
             if (isDeleted) {
-                Toast.makeText(this, "Client deleted successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Client supprimé", Toast.LENGTH_SHORT).show();
                 finish();
             } else {
-                Toast.makeText(this, "Delete failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Erreur lors de la suppression", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -65,17 +65,17 @@ public class ModifClient extends AppCompatActivity {
 
             String prenomModif = etPrenom.getText().toString();
             String nomModif = etNom.getText().toString();
-            int numTelModif = Integer.parseInt(etNumTel.getText().toString());
+            String numTelModif = etNumTel.getText().toString();
             String adrMailModif = etAdrMail.getText().toString();
             String adrPostaleModif = etAdrPostale.getText().toString();
 
             Log.d("UpdateDebug", idCli + nomModif + prenomModif + numTelModif + adrMailModif + adrPostaleModif);
             boolean isUpdated = clientDAO.update(idCli, nomModif, prenomModif, numTelModif, adrMailModif, adrPostaleModif);
             if (isUpdated) {
-                Toast.makeText(this, "Client updated successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Client mis à jour", Toast.LENGTH_SHORT).show();
                 finish();
             } else {
-                Toast.makeText(this, "Update failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Erreur lors de la modification", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -104,7 +104,7 @@ public class ModifClient extends AppCompatActivity {
     Integer idCli;
     String nom;
     String prenom;
-    Integer numTel;
+    String numTel;
     String adrMail;
     String adrPostale;
 }

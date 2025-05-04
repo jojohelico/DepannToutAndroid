@@ -80,4 +80,42 @@ public class ClientDAOTest {
         assertFalse("Client toujours présent après suppression", found);
     }
 
+    @Test
+    public void testModifClient() {
+        // Création d'un client de test
+        Client client = new Client("NomAvant", "PrenomAvant", "0600000000", "avant@mail.com", "1 rue avant");
+        long id = clientDAO.create(client);
+
+        // Vérifie que l'insertion s'est bien passée
+        assertTrue("Échec de l'insertion du client", id != -1);
+
+        // Mise à jour des données du client
+        boolean updated = clientDAO.update((int) id, "NomApres", "PrenomApres", "0611223344", "apres@mail.com", "2 rue après");
+
+        // Vérifie que la mise à jour a été effectuée
+        assertTrue("Échec de la mise à jour du client", updated);
+
+        // Lecture de tous les clients pour vérifier que les nouvelles infos sont bien là
+        Cursor cursor = clientDAO.readLesClients();
+        boolean foundUpdated = false;
+
+        while (cursor.moveToNext()) {
+            int clientId = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
+            String nom = cursor.getString(cursor.getColumnIndexOrThrow("nom"));
+            String prenom = cursor.getString(cursor.getColumnIndexOrThrow("prenom"));
+
+            if (clientId == (int) id && nom.equals("NomApres") && prenom.equals("PrenomApres")) {
+                foundUpdated = true;
+                break;
+            }
+        }
+
+        cursor.close();     // On ferme le curseur après utilisation
+        clientDAO.close();  // On ferme le DAO proprement
+
+        // Vérifie que les nouvelles données ont bien été retrouvées
+        assertTrue("Le client mis à jour n'a pas été retrouvé avec les nouvelles informations", foundUpdated);
+    }
+
+
 }

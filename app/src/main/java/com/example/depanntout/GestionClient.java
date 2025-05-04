@@ -83,7 +83,7 @@ public class GestionClient extends AppCompatActivity {
             int idCli = c.getInt(c.getColumnIndexOrThrow("_id"));
             String prenom = c.getString(c.getColumnIndexOrThrow("prenom"));
             String nom = c.getString(c.getColumnIndexOrThrow("nom"));
-            int numTel = c.getInt(c.getColumnIndexOrThrow("numTel"));
+            String numTel = c.getString(c.getColumnIndexOrThrow("numTel"));
             String adrMail = c.getString(c.getColumnIndexOrThrow("adrMail"));
             String adrPostale = c.getString(c.getColumnIndexOrThrow("adrPostale"));
 

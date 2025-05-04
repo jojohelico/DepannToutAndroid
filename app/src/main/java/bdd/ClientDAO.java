@@ -56,7 +56,7 @@ public class ClientDAO {
         return result > 0;
     }
 
-    public boolean update(int id, String nom, String prenom, int numTel, String adrMail, String adrPostale) {
+    public boolean update(int id, String nom, String prenom, String numTel, String adrMail, String adrPostale) {
         ContentValues values = new ContentValues();
         values.put("nom", nom);
         values.put("prenom", prenom);
