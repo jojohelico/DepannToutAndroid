@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Depanntout</string>
+    <string name="libTvTitre">Dépannages à domicile</string>
+    <string name="libBtGestClient">Gestion des clients</string>
+    <string name="libBtGestInter">Gestion des interventions</string>
+    <string name="libTvGestClient">La gestion des clients</string>
+    <string name="libTvIdClient">Id</string>
+    <string name="libTvNomClient">Nom</string>
+    <string name="libTvPrenomClient">Prenom</string>
+    <string name="libTvNumTelClient">n° Tel</string>
+    <string name="libTvMailClient">e-Mail</string>
+    <string name="libTvAdrClient">Adresse Postale</string>
+    <string name="libBtCréerClient">Créer Client</string>
+    <string name="libBtQuitter">Quitter</string>
+    <string name="libTvTitreCreateClient">Création d\'un client</string>
+    <string name="libTvCreateNomClient">Entrez le nom :</string>
+    <string name="libPtSaisirNomClient">Saisir le nom ici</string>
+    <string name="libTvCreatePrenomClient">Entrez le prénom :</string>
+    <string name="libPtSaisirPrenomClient">Saisir le prénom ici</string>
+    <string name="libTvCreateNumTelClient">Entrez le numéro de téléphone :</string>
+    <string name="libPtSaisirNumTel">Saisir le numéro de téléphone ici</string>
+    <string name="libTvCreateAdrClient">Entrez adesse postale :</string>
+    <string name="libPtSaisirAdrClient">Saisir adresse postale ici</string>
+    <string name="libTvCreateMailClient">Entrez adresse mail :</string>
+    <string name="libPtSaisirMailClient">Saisir adresse mail ici</string>
+    <string name="libBtCreateClient">Créer</string>
+    <string name="libTvTitreInter">Gestion des interventions</string>
+    <string name="libTvIdInter">id</string>
+    <string name="libTvDateInter">Date</string>
+    <string name="libTvHeureInter">Heure</string>
+    <string name="libTvObervInter">Observation</string>
+    <string name="libTvIdClientInter">Id Client</string>
+    <string name="libBtCreateInter">Ajouter</string>
+    <string name="libBtQuitterInter">Quitter</string>
+    <string name="libTvTitreCreateInter">Création d\'une intervention</string>
+</resources>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <include layout="@layout/header_layout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvModifNomClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/libTvNomClient"
+                android:textColor="#1976D2"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/ptModifNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvModifPrenomClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/libTvPrenomClient"
+                android:textColor="#1976D2"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/ptModifPrenom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvModifNumTel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/libTvNumTelClient"
+                android:textColor="#1976D2"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/ptModifNumTel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tvModifAdrMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/libTvMailClient"
+                android:textColor="#1976D2"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/ptModifAdrMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+            <TextView
+                android:id="@+id/tvModifAdrPostale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/libTvAdrClient"
+                android:textColor="#1976D2"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/ptModifAdrPostale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+            <Button
+                android:id="@+id/btnModifClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Modifier" />
+
+            <Button
+                android:id="@+id/btnDeleteClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Supprimer" />
+
+
+            <Button
+                android:id="@+id/btQuitterClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/libBtQuitter" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
